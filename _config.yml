@@ -2,7 +2,7 @@ title: CompSci Blogs
 description: "August 2023 to June 2024"
 owner_name: Pranav Santhosh
 github_username: SanPranav
-baseurl: "/student"
+baseurl: "/PranavSanStudent"
 remote_theme: pages-themes/midnight@v0.2.0
 plugins:
 - jekyll-remote-theme
