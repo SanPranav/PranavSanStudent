@@ -1,15 +1,13 @@
 ---
 layout: default
-title: Student Blog
+title: **About Me**
 ---
 
 
-## Build you Home Page here 
-This is about your journey. Start now!!!
+## **About Me** 
+>Hi, I am Pranav Santhosh a Freshman that goes to Del Norte Highschool. I am currently 14 years old and enjoy playing badminton aswell as many other activites. One hobby that I enjoy is playing games, but not that often. I have a family of 5 which consists of my brother, mother, sister, father, and lastly me. I am the oldest child in my family and I enjoy coding and wish to pursue my intrests later in life. So, in order to succed I enrolled into the CS SE Class. 
 
-## Overview of Hacks, Study and Tangibles
-Blogging in GitHub pages is a way to learn and code at the same time. 
+## A Picture About Me
+![](Hobbies for Comp Sci - Pitcure.jpeg)
 
-- Plans, Lists, [Scrum Boards](https://clickup.com/blog/scrum-board/) help you to track key events, show progress and record time.  Effort is a big part of your class grade.  Show plans and time spent!
-- [Hacks(Todo)](https://levelup.gitconnected.com/six-ultimate-daily-hacks-for-every-programmer-60f5f10feae) enable you to stay in focus with key requirements of the class.  Each Hack will produce Tangibles.
-- Tangibles or [Tangible Artifacts](https://en.wikipedia.org/wiki/Artifact_(software_development)) are things you accumulate as a learner and coder. 
+
