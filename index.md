@@ -9,5 +9,5 @@ title: About Me
 
 ## A Picture About Me
 ![PicturesOfHobbies]({{site.baseurl}}/images/HobbiesforCompSci-Pitcure.jpg)
-
+![PictureOfHobbies](images/HobbiesforCompSci-Picture.png)
 
