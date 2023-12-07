@@ -9,8 +9,8 @@
     width: auto;
     height: auto;
     border-radius: 10px;
-    background-color: #21807c;
-    border: 3px solid black;
+    background-color: #16706c;
+    border: 3px solid rgb(0, 0, 0);
     font-size: 1.5em;
 
     display: flex;
@@ -21,7 +21,7 @@
     grid-row: span 1;
 
     // Creates smooth animation effect
-    transition: all 0.5s; 
+    transition: all 1.0s; 
   }
 
   /* define class for redifined button */
@@ -31,7 +31,7 @@
 
    /* darkens the background color on hover to create a selecting effect */
   .button:hover {
-    background-color: #373737;
+    background-color: #360e0e;
   }
 
   /* "row style" is flexible size and aligns pictures in center */
@@ -79,7 +79,7 @@
   /* styling for the calculator clear button */
   .calculator-clear {
     @extend .button;
-    background-color: #e68b1c;
+    background-color: #251d14;
   }
   
   /* styling for the calculator equals button */
