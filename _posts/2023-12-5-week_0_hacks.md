@@ -4,12 +4,12 @@ comments: false
 layout: post
 title: Types of Code
 description: Types of Code that I we might learn during this class. 
-type: hacks(todo)
+type: hacks
 courses: { compsci: {week: 0} }
 ---
 
 # Hacks: 
-![ImageofBinaryCode](images/hacksbinarycode.jpeg)
+![ImageofBinaryCode]({{site.baseurl}}/images/hacksbinarycode.png)
 1. C++
 >C++ is a powerful, high-performance programming language widely used for system and game development, featuring both object-oriented and procedural programming paradigms.
 2.  C# 
