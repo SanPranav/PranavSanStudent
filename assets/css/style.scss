@@ -9,8 +9,8 @@
     width: auto;
     height: auto;
     border-radius: 10px;
-    background-color: #16706c;
-    border: 3px solid rgb(0, 0, 0);
+    background-color: #1176b5;
+    border: 3px solid rgb(255, 255, 255);
     font-size: 1.5em;
 
     display: flex;
@@ -31,7 +31,7 @@
 
    /* darkens the background color on hover to create a selecting effect */
   .button:hover {
-    background-color: #360e0e;
+    background-color: #14013b;
   }
 
   /* "row style" is flexible size and aligns pictures in center */
@@ -75,19 +75,49 @@
   .calculator-operation {
     @extend .button;
   }
+
+
   
   /* styling for the calculator clear button */
   .calculator-clear {
     @extend .button;
-    background-color: #251d14;
+    background-color: #bdb4aa;
   }
   
   /* styling for the calculator equals button */
   .calculator-equals {
     @extend .button;
-    background-color: #e70f0f;
+    background-color: #2685b8;
   }
 
-  body {
-    background-color: rgb(89, 0, 0);
+body {
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+a,h1,h2 {  
+  color: rgb(4, 0, 241)
+}
+
+a,h3,h4 {
+  color: rgb(255, 255, 255)
+}
+
+#header nav ul li a {
+  background: none;
+  background-color: rgb(71, 85, 192);
+  border: none;
   }
+  #header nav ul li a:hover{
+    border: none;
+    background: none;
+    background-color: rgb(198, 172, 245);
+  color: rgb(0, 0, 0); 
+}
+
+body {
+  font-family: monospace;
+}
+a h1,h2,h3,h4 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}  
