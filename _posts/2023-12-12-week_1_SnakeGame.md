@@ -8,6 +8,102 @@ type: tangibles
 courses: { compsci: {week: 1} }
 ---
 
+
+<style>
+
+
+    body{
+    }
+    .wrap{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    canvas{
+        display: none;
+    }
+   
+    canvas:focus{
+        outline: none;
+    }
+
+
+    /* All screens style */
+    #gameover p, #setting p, #menu p{
+        font-size: 25px;
+    }
+
+
+    #gameover a, #setting a, #menu a{
+        font-size: 30px;
+        display: block;
+    }
+
+
+    #gameover a:hover, #setting a:hover, #menu a:hover{
+        cursor: pointer;
+    }
+
+
+    #gameover a:hover::before, #setting a:hover::before, #menu a:hover::before{
+        margin-right: 10px;
+    }
+
+
+    #menu{
+        display: block;
+    }
+
+
+    #gameover{
+        display: none;
+    }
+
+
+    #setting{
+        display: none;
+    }
+
+
+    #setting input{
+        display:none;
+    }
+
+
+    #setting label{
+        cursor: pointer;
+    }
+
+
+    #setting input:checked + label{
+        background: #00008B;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
+
+
+     #score_value {
+        font-size: 40px;
+        text-align: center;
+    }
+
+
+    .fs-4 {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .theme-dark {
+        background-color: #010203;
+        color: #fff;
+    }
+     .theme-dark h1 {
+        color: #fff;
+    }
+    .theme-light {
+        background-color: #E8DACC;
+    }
 <style>
 
     body{
@@ -18,16 +114,19 @@ courses: { compsci: {week: 1} }
     }
 
     canvas{
+        border-radius: 4px; box-shadow: 0px 0px 30px #00FF00;
         display: none;
+        border-style: solid;
+        border-width: 10px;
+        border-color: #00FF00;
     }
-    
     canvas:focus{
         outline: none;
     }
 
     /* All screens style */
     #gameover p, #setting p, #menu p{
-        font-size: 25px;
+        font-size: 20px;
     }
 
     #gameover a, #setting a, #menu a{
@@ -64,7 +163,7 @@ courses: { compsci: {week: 1} }
     }
 
     #setting input:checked + label{
-        background: #00008B; 
+        background: linear-gradient(to right, #ADD8E6, #0000FF); 
         -webkit-text-fill-color: transparent; 
         -webkit-background-clip: text;
     }
@@ -80,14 +179,14 @@ courses: { compsci: {week: 1} }
         text-align: center;
     } 
     .theme-dark {
-        background-color: #008000;
+        background-color: #010203;
         color: #fff;
     }
     .theme-dark h1 {
         color: #fff;
     }
     .theme-light {
-        background-color: #fff;
+        background-color: #E8DACC;
     }
 </style>
 
@@ -99,15 +198,16 @@ courses: { compsci: {week: 1} }
     <div class="container bg-secondary" style="text-align:center;">
         <!-- Main Menu -->
         <div id="menu" class="py-4 text-light">
-            <p>Press space to begin.</p>
+            <p>Move Using Arrows or WASD to Begin!</p>
             <a id="new_game" class="link-alert" style="font-size: 20px;">New Game</a>
             <a id="setting_menu" class="link-alert" style="font-size: 20px; ">Settings</a>
         </div>
         <!-- Game Over -->
         <div id="gameover" class="py-4 text-light" style="color: #D2042D; font-weight: bold;">
-            <p style="color:red">Game over.</p>
+            <p style="color:red">Game over. Better Luck Next Time!</p>
             <a id="new_game1" class="link-alert" style="font-size: 20px; ">New Game</a>
             <a id="setting_menu1" class="link-alert" style="font-size: 20px; ">Settings</a>
+            <br>
         </div>
         <!-- Play Screen -->
         <canvas id="snake" class="wrap" width="480" height="480" tabindex="1"></canvas>
@@ -127,6 +227,10 @@ courses: { compsci: {week: 1} }
             <p>Theme:
                 <input type="radio" id="theme-default" name="theme" value="default" checked>
                 <label for="theme-default">Default</label>
+                <input type="radio" id="theme-dark" name="theme" value="dark">
+                <label for="theme-dark">Dark</label>
+                <input type="radio" id="theme-light" name="theme" value="light">
+                <label for="theme-light">Light</label>
             </p>
             <p>Wall:
                 <input id="wallon" type="radio" name="wall" value="1" checked/>
@@ -222,7 +326,7 @@ courses: { compsci: {week: 1} }
         let food = {x: 0, y: 0};
         let score;
         let wall;
-        /* Display Control */
+        /* Controls */
         /////////////////////////////////////////////////////////////
         // 0 for the game
         // 1 for the main menu
@@ -251,7 +355,7 @@ courses: { compsci: {week: 1} }
                     break;
             }
         }
-        /* Actions and Events  */
+        /* Button Functions  */
         /////////////////////////////////////////////////////////////
         window.onload = function(){
             // HTML Events to Functions
@@ -260,7 +364,7 @@ courses: { compsci: {week: 1} }
             button_new_game2.onclick = function(){newGame();};
             button_setting_menu.onclick = function(){showScreen(SCREEN_SETTING);};
             button_setting_menu1.onclick = function(){showScreen(SCREEN_SETTING);};
-            // speed (initial speed on game reboot)
+            // speed (starting speed)
             setSnakeSpeed(55);
             for(let i = 0; i < speed_setting.length; i++){
                 speed_setting[i].addEventListener("click", function(){
@@ -289,7 +393,7 @@ courses: { compsci: {week: 1} }
                     newGame();
             }, true);
         }
-        /* Snake is on the Go (Driver Function)  */
+        /* Snake Movement  */
         /////////////////////////////////////////////////////////////
         let mainLoop = function(){
             let _x = snake[0].x;
@@ -349,11 +453,11 @@ courses: { compsci: {week: 1} }
 
             //If the score is 20 or above, do the following
               if(score >= 20) {
-                    canvas.style.borderColor = "#ffcc00";
+                    canvas.style.borderColor = "#00FF00";
                     // Check if canvas size has been shrunk
                     if(canvas.width !== 500) {
                         canvas.width = 500;
-                        canvas.height = 500.
+                        canvas.height = 500;
                     }
                     if(score === 20) {
                         playWinnerSound();
@@ -401,9 +505,9 @@ courses: { compsci: {week: 1} }
             //Reset Border Color
             const selectedTheme = document.querySelector('input[name="theme"]:checked').value; // Checks what the current theme is
             if (selectedTheme === 'dark') {
-                canvas.style.borderColor = "#FFFFFF";
+                canvas.style.borderColor = "#00FF00";
             } else {
-                canvas.style.borderColor = "#B2BEB5";
+                canvas.style.borderColor = "#00FF00";
             }
             altScore(score);
             // initial snake
@@ -462,7 +566,7 @@ courses: { compsci: {week: 1} }
             ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
         }
 
-        // Color for Fish
+        // Fish
         let activeDot2 = function(x, y){
             ctx.fillStyle = "#DC143C";
             ctx.fillText("🐟", x * BLOCK, y * BLOCK + BLOCK);
@@ -490,9 +594,9 @@ courses: { compsci: {week: 1} }
         }
         /////////////////////////////////////////////////////////////
         // Change the snake speed...
-        // 150 = slow
-        // 100 = normal
-        // 50 = fast
+        // 100 = slow
+        // 80 = normal
+        // 40 = fast
         let setSnakeSpeed = function(speed_value){
             snake_speed = speed_value;
         }
