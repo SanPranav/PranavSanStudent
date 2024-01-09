@@ -9,8 +9,8 @@
     width: auto;
     height: auto;
     border-radius: 10px;
-    background-color: #1176b5;
-    border: 3px solid rgb(255, 255, 255);
+    background-color: #000000;
+    border: 3px solid rgb(31, 27, 27);
     font-size: 1.5em;
 
     display: flex;
@@ -31,7 +31,7 @@
 
    /* darkens the background color on hover to create a selecting effect */
   .button:hover {
-    background-color: #14013b;
+    background-color: #090d35;
   }
 
   /* "row style" is flexible size and aligns pictures in center */
@@ -49,8 +49,8 @@
 // STYLING FOR CALCULATOR
   /* class to create the calculator's container; uses CSS grid dsiplay to partition off buttons */
   .calculator-container { 
-    width: 90vw; /* this width and height is specified for mobile devices by default */
-    height: 80vh;
+    width: 100vw; /* this width and height is specified for mobile devices by default */
+    height: 90vh;
     margin: 0 auto;
   
     display: grid;
@@ -62,7 +62,7 @@
   @media (min-width: 600px) { 
     .calculator-container {
         width: 40vw;
-        height: 80vh;
+        height: 85vh;
     }
   }
 
@@ -74,6 +74,8 @@
   /* styling for the calculator operation button */
   .calculator-operation {
     @extend .button;
+    background-color: #572049;
+    border-radius: 10px; box-shadow: 0px 0px 30px #572049;
   }
 
 
@@ -81,13 +83,15 @@
   /* styling for the calculator clear button */
   .calculator-clear {
     @extend .button;
-    background-color: #bdb4aa;
+    background-color: #0000FF;
+    border-radius: 10px; box-shadow: 0px 0px 30px #0000FF;
   }
   
   /* styling for the calculator equals button */
   .calculator-equals {
     @extend .button;
-    background-color: #2685b8;
+    background-color: #0000FF; 
+    border-radius: 10px; box-shadow: 0px 0px 30px #0000FF;
   }
 
 body {
