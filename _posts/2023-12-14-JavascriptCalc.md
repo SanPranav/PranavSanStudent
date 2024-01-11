@@ -17,8 +17,6 @@ Hack 3: Implement 1 number operation (ie SQRT)
 HTML implementation of the calculator. 
 -->
 
-{% include nav_home.html %}
-
 <!-- 
     Style and Action are aligned with HRML class definitions
     style.css contains majority of style definition (number, operation, clear, and equals)
@@ -32,7 +30,7 @@ HTML implementation of the calculator.
       result to take up the entirety of the first row;
       span defines 4 columns and 2 row
     */
-    grid-column: span 2;
+    grid-column: span 1;
     grid-row: span 1;
   
     border-radius: 4px; box-shadow: 0px 0px 30px #0000FF;
@@ -53,26 +51,27 @@ HTML implementation of the calculator.
       <!--row 1-->
       <div class="calculator-clear">A/C</div>
       <div class="calculator-equals">=</div>
-      <div class="calculator-number">1</div>
-      <div class="calculator-number">2</div>
-      <!--row 2-->
-      <div class="calculator-number">3</div>
       <div class="calculator-operation">+</div>
-      <div class="calculator-number">4</div>
-      <div class="calculator-number">5</div>
-      <!--row 3-->
-      <div class="calculator-number">6</div>
+      <div class="calculator-number">1</div>
+      <!--row 2-->
+      <div class="calculator-number">2</div>
+      <div class="calculator-number">3</div>
       <div class="calculator-operation">-</div>
-      <div class="calculator-number">7</div>
-      <div class="calculator-number">8</div>
-      <!--row 4-->
-      <div class="calculator-number">9</div>
+      <div class="calculator-number">4</div>
+      <!--row 3-->
+      <div class="calculator-number">5</div>
+      <div class="calculator-number">6</div>
       <div class="calculator-operation">*</div>
+      <div class="calculator-number">7</div>
+      <!--row 4-->
+      <div class="calculator-number">8</div>
+      <div class="calculator-number">9</div>
       <!--row 5-->
+      <div class="calculator-operation">/</div>
       <div class="calculator-number">.</div>
       <div class="calculator-number">0</div>
-      <div class="calculator-operation">/</div>
       <div class="calculator-operation">^2</div>
+      <div class="calculator-operation">^3</div>
   </div>
 </div>
 
@@ -155,6 +154,9 @@ function calculate (first, second) { // function to calculate the result of the 
             break;
         case "^2":
             result = first * first;
+            break;
+        case "^3":
+            result = first * first * first;
             break;
         default: 
             break;
